@@ -7,6 +7,9 @@
 <body>
     <h2>Добро пожаловать на страницу регистрации!</h2>
 
+    {{#message}}
+        {{message}}
+    {{/message}}
     <div>
         <form action="/login" method="post">
             <input type="text" name="username" placeholder="Имя">

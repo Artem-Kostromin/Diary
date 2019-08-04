@@ -28,8 +28,9 @@ public class RegistrationController {
             model.put("message", "Пользователь с таким именем уже есть!");
             return "registration";
         }
-       /* User newUser = new User(username,password);
+        /* User newUser = new User(username,password);
         userRepo.save(newUser);*/
+        user.setActive(true);
         userRepo.save(user);
         return "redirect:/login";
 

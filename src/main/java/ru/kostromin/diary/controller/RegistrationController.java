@@ -5,9 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.kostromin.diary.domain.Role;
 import ru.kostromin.diary.domain.User;
 import ru.kostromin.diary.repos.UserRepo;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
 
@@ -28,8 +30,10 @@ public class RegistrationController {
             model.put("message", "Пользователь с таким именем уже есть!");
             return "registration";
         }
-       /* User newUser = new User(username,password);
+        /* User newUser = new User(username,password);
         userRepo.save(newUser);*/
+        user.setActive(true);
+        user.setRoles(Collections.singleton(Role.USER));
         userRepo.save(user);
         return "redirect:/login";
 

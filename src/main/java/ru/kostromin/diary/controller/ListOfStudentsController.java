@@ -1,6 +1,7 @@
 package ru.kostromin.diary.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,15 +14,11 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class MainController {
+@PreAuthorize("hasAuthority('ADMIN')")
+public class ListOfStudentsController {
     @Autowired
     private StudentRepo studentRepo;
     private static Iterable<Student> students;
-
-    @GetMapping("/")
-    public String greeting(){
-        return "greeting";
-    }
 
     @GetMapping("/listOfStudents")
     public String showStudent(Map<String,Object> model){

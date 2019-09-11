@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Diary</title>
-    <link href="/static/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
+<#import "parts/common.ftl" as c>
+
+<@c.page>
     <h1>Hello, student!</h1>
     <p> На данном сайте вы сможете посмотреть актуальное домашнее задание, задать интересующий вопрос
         а также пощеголять своими оценками перед родителями! </p>
-    <!--<a href="/supportHtml">Переход на основную страницу</a>-->
 
     <a href="/usefulInfo">Полезная информация</a>
     <a href="/listOfStudents"><strong>Список учащихся(только для администратора)</strong></a>
+</@c.page>
 
 
-    <!--<img src="https://pp.userapi.com/CPfUXVn6jQTJOb035Wr7c2pcOsQ6yFJ2j2az8w/rTyVUxVBTzI.jpg"
-         width="600" height="611"/>-->
-</body>
-</html>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.kostromin.diary.domain.Student;
 import ru.kostromin.diary.repos.StudentRepo;
+import ru.kostromin.diary.repos.UserRepo;
 
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,9 @@ import java.util.Map;
 public class ListOfStudentsController {
     @Autowired
     private StudentRepo studentRepo;
+    @Autowired
+    private UserRepo userRepo;
+
     private static Iterable<Student> students;
 
     @GetMapping("/listOfStudents")

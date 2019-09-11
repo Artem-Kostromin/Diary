@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Diary</title>
-    <link href="/static/style.css" rel="stylesheet"/>
-</head>
-<body>
+<#import "parts/common.ftl" as c>
+
+<@c.page>
     <div>
         <form method="post">
             <input type="text" name="studentname" placeholder="Имя учащегося"/>
@@ -16,11 +11,14 @@
     </div>
 
     <div>Список учащихся</div>
-    {{#students}}
-    <div>
-        <b>{{studentname}}</b>
-        <span>{{classNumber}}</span>
-    </div>
-    {{/students}}
-</body>
-</html>
+    <#list students as student>
+        <div>
+            <b>${student.studentname}</b>
+            <span>${student.classNumber}</span>
+        </div>
+    </#list>
+</@c.page>
+
+
+
+

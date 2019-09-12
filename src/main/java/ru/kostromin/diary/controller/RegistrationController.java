@@ -30,8 +30,6 @@ public class RegistrationController {
             model.put("message", "Пользователь с таким именем уже есть!");
             return "registration";
         }
-        /* User newUser = new User(username,password);
-        userRepo.save(newUser);*/
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
         userRepo.save(user);

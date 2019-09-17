@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import ru.kostromin.diary.domain.HomeTask;
+import ru.kostromin.diary.domain.User;
 import ru.kostromin.diary.repos.HomeTaskRepo;
 import ru.kostromin.diary.repos.UserRepo;
 
@@ -26,10 +28,12 @@ public class HomeTasksController {
         model.put("homeTasks", homeTasks);
         return "homeTasks";
     }
-    @PostMapping
-    public String addHomeTask(HomeTask homeTask, Map<String,Object> model){
-        homeTask.setUserId(userRepo.findByUsername("user").getId());
+    @PostMapping("/homeTasks/**")
+    public String addHomeTask(@RequestParam String date, @RequestParam String body, Map<String,Object> model){
+        HomeTask homeTask = new HomeTask(13L,date,body);
         homeTaskRepo.save(homeTask);
-        return "listOfStudents";
+        homeTasks = homeTaskRepo.findAll();
+        model.put("homeTasks", homeTasks);
+        return "homeTasks";
     }
 }

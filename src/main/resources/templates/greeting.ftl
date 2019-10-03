@@ -1,5 +1,6 @@
 <#import "parts/common.ftl" as c>
 
+
 <@c.page>
     <h1>Hello, student!</h1>
     <p> На данном сайте вы сможете посмотреть актуальное домашнее задание, задать интересующий вопрос
@@ -7,6 +8,8 @@
 
     <a href="/usefulInfo">Полезная информация</a>
     <a href="/listOfStudents"><strong>Список учащихся(только для администратора)</strong></a>
+
+
 </@c.page>
 
 

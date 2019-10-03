@@ -1,6 +1,6 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
-    <p>Здесь будут выкладываться полезные материалы!</p>
+    <p>Привет, ${username}!</p>
     Домашнее задание:
     <#list homeTasks as homeTask>
         <div>

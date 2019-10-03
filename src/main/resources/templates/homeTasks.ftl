@@ -1,8 +1,7 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-    Здесь будет домашка!
-    <div>Домашние задания ученика </div>
+    <div>Домашние задания ${userName} </div>
     <#list homeTasks as homeTask>
         <div>
             <b>${homeTask.date}</b>

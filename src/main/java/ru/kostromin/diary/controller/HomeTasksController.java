@@ -22,15 +22,16 @@ public class HomeTasksController {
 
     private static List<HomeTask> homeTasks;
 
-    @GetMapping("/homeTasks/**")
-    public String showUsersTasks(Map<String,Object> model){
+    @GetMapping(value="/homeTasks/**", params="foo")
+    public String showUsersTasks(Map<String,Object> model, @RequestParam("foo") String foo){
         homeTasks = homeTaskRepo.findAll();
+        model.put("userName", foo);
         model.put("homeTasks", homeTasks);
         return "homeTasks";
     }
-    @PostMapping("/homeTasks/**")
-    public String addHomeTask(@RequestParam String date, @RequestParam String body, Map<String,Object> model){
-        HomeTask homeTask = new HomeTask(13L,date,body);
+    @PostMapping(value="/homeTasks/**", params="foo")
+    public String addHomeTask(@RequestParam String date, @RequestParam String body, @RequestParam("foo") String foo, Map<String,Object> model){
+        HomeTask homeTask = new HomeTask(userRepo.findByUsername(foo).getId(),date,body);
         homeTaskRepo.save(homeTask);
         homeTasks = homeTaskRepo.findAll();
         model.put("homeTasks", homeTasks);

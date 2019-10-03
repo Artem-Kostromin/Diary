@@ -13,7 +13,7 @@
     <div>Список учащихся</div>
     <#list users as user>
         <div>
-            <a href="http://localhost:8080/homeTasks/${user.username}">${user.username}</a>
+            <a href="http://localhost:8080/homeTasks/?foo=${user.username}">${user.username}</a>
             <span>${user.password}</span>
         </div>
     </#list>

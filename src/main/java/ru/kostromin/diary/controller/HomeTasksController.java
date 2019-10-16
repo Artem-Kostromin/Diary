@@ -24,7 +24,7 @@ public class HomeTasksController {
 
     @GetMapping(value="/homeTasks/**", params="foo")
     public String showUsersTasks(Map<String,Object> model, @RequestParam("foo") String foo){
-        homeTasks = homeTaskRepo.findAll();
+        homeTasks = homeTaskRepo.findAllByUserId(userRepo.findByUsername(foo).getId());
         model.put("userName", foo);
         model.put("homeTasks", homeTasks);
         return "homeTasks";

@@ -7,6 +7,8 @@
             <b>${homeTask.date}</b>
             <span>${homeTask.body}</span>
         </div>
+    <#else>
+        У данного пользователя пока нет домашнего задания.
     </#list>
     <div>
         <form <#--action="/homeTasks/**" -->method="post">
